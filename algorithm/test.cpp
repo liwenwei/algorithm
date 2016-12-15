@@ -111,9 +111,3 @@ int removeDuplicates(vector<int> &nums)
 
     return nums.size();
 }
-
-int main()
-{
-    string str = "abcabcbb";
-    cout << lengthOfLongestSubstring(str) << endl;
-}

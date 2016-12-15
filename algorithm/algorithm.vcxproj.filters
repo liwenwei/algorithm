@@ -4,5 +4,6 @@
     <ClCompile Include="ht.cpp" />
     <ClCompile Include="Josephus.c" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="str.cpp" />
   </ItemGroup>
 </Project>
