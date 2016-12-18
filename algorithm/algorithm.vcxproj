@@ -66,6 +66,7 @@
   <ItemGroup>
     <ClCompile Include="ht.cpp" />
     <ClCompile Include="Josephus.c" />
+    <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="str.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>

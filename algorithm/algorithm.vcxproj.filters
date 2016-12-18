@@ -5,5 +5,6 @@
     <ClCompile Include="Josephus.c" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="str.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
   </ItemGroup>
 </Project>

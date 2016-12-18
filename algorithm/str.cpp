@@ -20,6 +20,9 @@ int strStr(string haystack, string needle)
     return -1;
 }
 
+/*
+* String to Integer
+*/
 int atoi(string str) {
     int index = 0, sign = 1, total = 0;
     //1. Empty string
@@ -48,11 +51,4 @@ int atoi(string str) {
         index++;
     }
     return total * sign;
-}
-
-int main()
-{
-    string s1 = "a";
-    string s2 = "";
-    cout << strStr(s1, s2) << endl;
 }
