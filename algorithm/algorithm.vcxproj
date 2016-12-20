@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="binarytree.cpp" />
     <ClCompile Include="ht.cpp" />
     <ClCompile Include="Josephus.c" />
     <ClCompile Include="LinkedList.cpp" />

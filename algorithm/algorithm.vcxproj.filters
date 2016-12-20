@@ -6,5 +6,6 @@
     <ClCompile Include="test.cpp" />
     <ClCompile Include="str.cpp" />
     <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="binarytree.cpp" />
   </ItemGroup>
 </Project>

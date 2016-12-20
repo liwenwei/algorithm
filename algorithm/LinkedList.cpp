@@ -83,17 +83,3 @@ ListNode* swapPairs(ListNode* head)
 
     return head;
 }
-
-int main()
-{
-    ListNode first(1);
-    ListNode second(2);
-    ListNode third(3);
-    ListNode forth(4);
-
-    first.next = &second;
-    second.next = &third;
-    third.next = &forth;
-
-    ListNode* result = swapPairs(&first);
-}
