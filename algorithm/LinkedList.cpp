@@ -65,24 +65,44 @@ bool hasCycle(ListNode *head)
     return true;
 }
 
+/*
+* Given a linked list, swap every two adjacent nodes and return its head.
+*
+* For example,
+* Given 1->2->3->4, you should return the list as 2->1->4->3.
+**/
+ListNode* swapPairs1(ListNode* head)
+{
+    if (head == NULL || head->next == NULL) return head;
+
+    ListNode *node = head->next;
+    head->next = swapPairs1(head->next->next);
+    node->next = head;
+
+    return node;
+}
+
 ListNode* swapPairs(ListNode* head)
 {
-    if (head == NULL) return NULL;
-    if (head->next == NULL) return NULL;
+    if (head == NULL || head->next == NULL) return NULL;
 
-    int temp = 0;
     ListNode *node = head;
+    ListNode *newHead = head->next;
 
-    while (node->next != NULL)
+    while (node != NULL && node->next != NULL)
     {
-        temp = node->val;
-        node->val = node->next->val;
-        node->next->val = temp;
+        ListNode *temp = node;
         node = node->next;
+        temp->next = node->next;
+        node->next = temp;
+        node = temp->next;
+        if (node != NULL && node->next != NULL) temp->next = node->next;
     }
 
-    return head;
+    return newHead;
 }
+
+/*
 
 int main()
 {
@@ -97,3 +117,5 @@ int main()
 
     ListNode* result = swapPairs(&first);
 }
+
+*/
