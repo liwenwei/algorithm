@@ -1,5 +1,7 @@
 #include <iostream>
 #include <algorithm>
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -41,4 +43,20 @@ bool isSameTree(TreeNode* p, TreeNode* q)
     if (p == NULL || q == NULL) return false;
 
     return p->val == q->val && isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+}
+
+void searchTree(vector<string>& result, string str, TreeNode* node)
+{
+    if (node->left == NULL && node->right == NULL) result.push_back(str + to_string(node->val));
+    if (node->left != NULL) searchTree(result, str + to_string(node->val) + "->", node->left);
+    if (node->right != NULL) searchTree(result, str + to_string(node->val) + "->", node->right);
+}
+
+vector<string> binaryTreePaths(TreeNode* root)
+{
+    vector<string> paths;
+    if (root == NULL) return paths;
+
+    searchTree(paths, "", root);
+    return paths;
 }
