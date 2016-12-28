@@ -8,5 +8,6 @@
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="recursion.cpp" />
     <ClCompile Include="binarytree.cpp" />
+    <ClCompile Include="binarysearchtree.cpp" />
   </ItemGroup>
 </Project>
