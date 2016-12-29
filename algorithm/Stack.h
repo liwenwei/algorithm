@@ -1,10 +1,12 @@
 #pragma once
 
 #include <queue>
+#include <stack>
+#include <string>
 
 using namespace std;
 
-class MyClass
+class Stack
 {
 public:
 
@@ -35,9 +37,38 @@ public:
     // Return whether the stack is empty
     bool empty()
     {
-        m_queue.empty();
+        return m_queue.empty();
     }
 
 private:
     queue<int> m_queue;
 };
+
+/*
+*
+* Valid Parentheses
+**/
+bool isValidParentheses(string s)
+{
+    stack<char> parenthese;
+    for (size_t i = 0; i < s.length(); i++)
+    {
+        switch (s[i])
+        {
+        case '(':
+        case '[':
+        case '{':
+            parenthese.push(s[i]);
+            break;
+        case ')':
+            if (parenthese.size() != 0 && parenthese.top() == '(') parenthese.pop(); else return false; break;
+        case ']':
+            if (parenthese.size() != 0 && parenthese.top() == '[') parenthese.pop(); else return false; break;
+        case '}':
+            if (parenthese.size() != 0 && parenthese.top() == '{') parenthese.pop(); else return false; break;
+        default:; // pass
+        }
+    }
+
+    return parenthese.empty();
+}
