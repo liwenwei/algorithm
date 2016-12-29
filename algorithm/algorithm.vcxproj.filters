@@ -12,5 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="Queue.h" />
   </ItemGroup>
 </Project>
