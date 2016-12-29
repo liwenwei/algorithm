@@ -10,4 +10,7 @@
     <ClCompile Include="binarytree.cpp" />
     <ClCompile Include="binarysearchtree.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Stack.h" />
+  </ItemGroup>
 </Project>
