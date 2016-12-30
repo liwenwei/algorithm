@@ -9,6 +9,9 @@
     <ClCompile Include="recursion.cpp" />
     <ClCompile Include="binarytree.cpp" />
     <ClCompile Include="binarysearchtree.cpp" />
+    <ClCompile Include="MazeProblem.cpp" />
+    <ClCompile Include="BFS.cpp" />
+    <ClCompile Include="magician.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stack.h" />

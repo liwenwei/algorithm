@@ -52,7 +52,3 @@ int atoi(string str) {
     }
     return total * sign;
 }
-
-int main()
-{
-}

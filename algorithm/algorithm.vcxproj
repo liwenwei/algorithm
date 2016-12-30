@@ -44,6 +44,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -64,11 +65,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BFS.cpp" />
     <ClCompile Include="binarysearchtree.cpp" />
     <ClCompile Include="binarytree.cpp" />
     <ClCompile Include="ht.cpp" />
     <ClCompile Include="Josephus.c" />
     <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="magician.cpp" />
+    <ClCompile Include="MazeProblem.cpp" />
     <ClCompile Include="recursion.cpp" />
     <ClCompile Include="str.cpp" />
     <ClCompile Include="test.cpp" />
