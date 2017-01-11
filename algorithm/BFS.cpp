@@ -43,6 +43,7 @@ void BFS(vector<list<int> > adjacencyList, int parent[], int level[], int start)
     }
 }
 
+/*
 int main()
 {
     int vertices, edges, v1, v2, weight;
@@ -100,3 +101,4 @@ int main()
 
     return 0;
 }
+*/

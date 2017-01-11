@@ -69,7 +69,8 @@
     <ClCompile Include="binarysearchtree.cpp" />
     <ClCompile Include="binarytree.cpp" />
     <ClCompile Include="ht.cpp" />
-    <ClCompile Include="Josephus.c" />
+    <ClCompile Include="Josephus.cpp" />
+    <ClCompile Include="LevenshteinDistance.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="magician.cpp" />
     <ClCompile Include="MazeProblem.cpp" />

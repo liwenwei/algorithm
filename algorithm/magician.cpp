@@ -40,4 +40,5 @@ LinkNode* magic(int CardNumber)
         curr->value = i;
     }
 
+    return curr;
 }

@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="ht.cpp" />
-    <ClCompile Include="Josephus.c" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="str.cpp" />
     <ClCompile Include="LinkedList.cpp" />
@@ -12,6 +11,8 @@
     <ClCompile Include="MazeProblem.cpp" />
     <ClCompile Include="BFS.cpp" />
     <ClCompile Include="magician.cpp" />
+    <ClCompile Include="LevenshteinDistance.cpp" />
+    <ClCompile Include="Josephus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stack.h" />

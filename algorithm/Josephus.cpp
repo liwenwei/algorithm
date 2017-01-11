@@ -85,9 +85,11 @@ void josephus(LinkNode **head, int m)
     }
 }
 
+/*
 int main()
 {
-    LinkNode *node = createCycle(41);
-    displayCycle(&node);
+    linknode *node = createcycle(41);
+    displaycycle(&node);
     josephus(&node, 3);
 }
+*/
