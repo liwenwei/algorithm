@@ -13,6 +13,7 @@
     <ClCompile Include="magician.cpp" />
     <ClCompile Include="LevenshteinDistance.cpp" />
     <ClCompile Include="Josephus.cpp" />
+    <ClCompile Include="algorithm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stack.h" />

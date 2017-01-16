@@ -65,6 +65,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="algorithm.cpp" />
     <ClCompile Include="BFS.cpp" />
     <ClCompile Include="binarysearchtree.cpp" />
     <ClCompile Include="binarytree.cpp" />
