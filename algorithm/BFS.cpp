@@ -10,9 +10,9 @@ using namespace std;
 // http://www.thecrazyprogrammer.com/2015/09/breadth-first-search-bfs-program-in-c.html
 // http://blog.csdn.net/yeweiyang16/article/details/50651199
 
-void BFS(vector<list<int> > adjacencyList, int parent[], int level[], int start)
+void BFS(vector<vector<int> > adjacencyList, int parent[], int level[], int start)
 {
-    list<int>::iterator itr;
+    vector<int>::iterator itr;
 
     /*
     * we start from node 'start', so node 'start' is at level 0.
@@ -43,7 +43,6 @@ void BFS(vector<list<int> > adjacencyList, int parent[], int level[], int start)
     }
 }
 
-/*
 int main()
 {
     int vertices, edges, v1, v2, weight;
@@ -101,4 +100,3 @@ int main()
 
     return 0;
 }
-*/
