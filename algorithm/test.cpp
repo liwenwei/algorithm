@@ -25,7 +25,7 @@ bool isAnagram(string s, string t){
     if (s.length() != t.length()) return false;
 
     unordered_map<char, int> counts;
-    
+
     for (size_t i = 0; i < s.length(); i++)
     {
         counts[s[i]]++;
@@ -58,7 +58,6 @@ vector<int> twoSum(vector<int>& numbers, int target)
             }
         }
     }
-
     return indexVec;
 }
 
