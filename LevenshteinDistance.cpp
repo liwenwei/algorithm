@@ -49,12 +49,12 @@ unsigned int levenshteinDistance(const std::string& s1, const std::string& s2)
     return d[len1][len2];
 }
 
-int main()
-{
-    int distance = levenshteinDistance("stecai1", "stecai");
-    int distance1 = levenshteinDistance("kitten", "sitting");
-    int distance2 = levenshteinDistance("Saturday", "Sunday");
-    std::cout << distance << std::endl;
-    std::cout << distance1 << std::endl;
-    std::cout << distance2 << std::endl;
-}
+//int main()
+//{
+//    int distance = levenshteinDistance("stecai1", "stecai");
+//    int distance1 = levenshteinDistance("kitten", "sitting");
+//    int distance2 = levenshteinDistance("Saturday", "Sunday");
+//    std::cout << distance << std::endl;
+//    std::cout << distance1 << std::endl;
+//    std::cout << distance2 << std::endl;
+//}

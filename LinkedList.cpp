@@ -102,8 +102,6 @@ ListNode* swapPairs(ListNode* head)
     return newHead;
 }
 
-/*
-
 int main()
 {
     ListNode first(1);
@@ -118,4 +116,3 @@ int main()
     ListNode* result = swapPairs(&first);
 }
 
-*/

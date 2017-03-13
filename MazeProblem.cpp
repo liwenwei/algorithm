@@ -50,7 +50,7 @@ void bfs()
     }
 }
 
-/*
+
 int main()
 {
     int maze[5][5] = {
@@ -65,4 +65,3 @@ int main()
     printf("(4, 4)\n");
     return 0;
 }
-*/
