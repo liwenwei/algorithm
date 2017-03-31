@@ -35,6 +35,12 @@ ListNode* reserveList1(ListNode* head)
     return prev;
 }
 
+/*
+* 4->2->3->6
+* => 2->4
+* => 3->2->4
+* => 6->3->2->4
+*/
 ListNode* reserveList(ListNode* head)
 {
     ListNode* new_head = NULL;
@@ -48,6 +54,41 @@ ListNode* reserveList(ListNode* head)
         new_head->next = temp;
     }
     return new_head;
+}
+
+/*
+* Reverse part of the linked list from m to n
+* 1->2->3->4->5, m=2, n=4
+* output: 1->4->3->2->5
+*/
+ListNode* reservePartList(ListNode* head, int m, int n)
+{
+    int i = 0;
+    while (true)
+    {
+
+    }
+}
+
+/*
+* Remove the duplicate node from sorted list
+* 1->2->2->4->5
+* output: 1->2->4->5
+*/
+void deleteDuplicates(ListNode* head)
+{
+    ListNode* curr = head;
+    while (curr && curr->next)
+    {
+        if (curr->val == curr->next->val)
+        {
+            curr->next = curr->next->next;
+        }
+        else
+        {
+            curr = curr->next;
+        }
+    }
 }
 
 bool hasCycle(ListNode *head)
@@ -104,15 +145,21 @@ ListNode* swapPairs(ListNode* head)
 
 int main()
 {
-    ListNode first(1);
-    ListNode second(2);
-    ListNode third(3);
-    ListNode forth(4);
+    ListNode* head = new ListNode(1);
+    ListNode* second = new ListNode(2);
+    ListNode* third = new ListNode(2);
+    ListNode* forth = new ListNode(4);
 
-    first.next = &second;
-    second.next = &third;
-    third.next = &forth;
+    head->next = second;
+    second->next = third;
+    third->next = forth;
 
-    ListNode* result = swapPairs(&first);
+    //ListNode* result = swapPairs(&first);
+    deleteDuplicates(head);
+    while (head)
+    {
+        cout << head->val << "->";
+        head = head->next;
+    }
 }
 
