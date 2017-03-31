@@ -91,6 +91,9 @@ void deleteDuplicates(ListNode* head)
     }
 }
 
+/*
+* fast pointer & slow pointer
+*/
 bool hasCycle(ListNode *head)
 {
     if (head == NULL || head->next == NULL) return false;

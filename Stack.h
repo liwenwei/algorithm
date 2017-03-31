@@ -6,6 +6,9 @@
 
 using namespace std;
 
+/*
+* Implment the stack by queue
+*/
 class Stack
 {
 public:
