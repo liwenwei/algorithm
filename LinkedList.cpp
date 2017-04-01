@@ -109,6 +109,7 @@ void deleteDuplicates1(ListNode* head)
 
 /*
 * fast pointer & slow pointer
+* 就像在一个环形的操场上跑步，一个跑的快，一个跑的慢，如果是是环状，就肯定会相遇
 */
 bool hasCycle(ListNode *head)
 {
@@ -123,6 +124,11 @@ bool hasCycle(ListNode *head)
     }
 
     return true;
+}
+
+ListNode* detectCycle(ListNode* head)
+{
+
 }
 
 /*

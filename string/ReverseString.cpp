@@ -52,4 +52,5 @@ int main()
     string str = "abcdef";
     leftRotateStr(&str[0], 2, 6);
     cout << str << endl;
+    return 0;
 }
