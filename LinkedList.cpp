@@ -91,6 +91,22 @@ void deleteDuplicates(ListNode* head)
     }
 }
 
+void deleteDuplicates1(ListNode* head)
+{
+    ListNode* curr = head;
+    ListNode* temp = NULL;
+    while (curr)
+    {
+        temp = curr;
+        while (temp && temp->next && temp->val == temp->next->val)
+        {
+            temp = temp->next;
+        }
+        curr->next = temp->next;
+        curr = curr->next;
+    }
+}
+
 /*
 * fast pointer & slow pointer
 */
@@ -157,8 +173,9 @@ int main()
     second->next = third;
     third->next = forth;
 
-    //ListNode* result = swapPairs(&first);
+    ListNode* result = swapPairs(head);
     deleteDuplicates(head);
+    deleteDuplicates1(head);
     while (head)
     {
         cout << head->val << "->";
