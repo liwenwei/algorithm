@@ -71,3 +71,13 @@ vector<vector<int>> levelOrderTraversal(TreeNode* root)
     vector<vector<int>> test;
     return test;
 }
+
+void reverse(TreeNode* root)
+{
+    if (root)
+    {
+        swap(root->left, root->right);
+        reverse(root->left);
+        reverse(root->right);
+    }
+}
