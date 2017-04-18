@@ -1,6 +1,3 @@
-// BellmanFord.cpp : 定义控制台应用程序的入口点。
-//
-
 #include <queue>
 #include <iostream>
 
@@ -33,76 +30,6 @@ void BellmanFord(int graph[N][N], int N, int* path, int start)
                 if (graph[j][k] != 0)	//说明有边
                 {
                     path[k] = min(path[k], path[j] + graph[j][k]);
-                }
-            }
-        }
-    }
-}
-
-//邻接矩阵为graph，结点数目为N，计算start到其他所有点的最短路径
-void SPFA(int graph[N][N], int N, int* path, int start)
-{
-    int i;
-    for (i = 0; i < N; i++)
-        path[i] = 1000000;
-    path[start] = 0;
-
-    queue<int> q;
-    q.push(0);
-    int t;
-    int count = 0;
-    while (!q.empty())
-    {
-        t = q.front();
-        q.pop();
-        for (i = 0; i < N; i++)
-        {
-            if (graph[t][i] != 0)
-            {
-                if (path[i] > path[t] + graph[t][i])	//经过t的新路径能够更短
-                {
-                    path[i] = path[t] + graph[t][i];
-                    q.push(i);
-                }
-            }
-        }
-    }
-}
-
-void SPFA1(int graph[N][N], const int* vertex, int N, int* gas, int start)
-{
-    int i;
-    vector<vector<int> > path(N, vector<int>(N));
-    for (i = 0; i < N; i++)
-    {
-        gas[i] = 0;
-        path[i][i] = 1;
-    }
-    gas[start] = vertex[start];
-
-
-    queue<int> q;
-    q.push(0);
-    int t;
-    int count = 0;
-    while (!q.empty())
-    {
-        t = q.front();
-        q.pop();
-        for (i = 0; i < N; i++)
-        {
-            if (graph[t][i] != 0)
-            {
-                if (gas[t] >= graph[t][i])	//保证能够有足够多的汽油到达i点
-                {
-                    if ((path[t][i] == 0) && (gas[i] < gas[t] - graph[t][i] + vertex[i]))	//到t的路径中没有出现过i，且经过t的汽油量能够剩余更多
-                    {
-                        gas[i] = gas[t] - graph[t][i] + vertex[i];
-                        q.push(i);
-
-                        path[i] = path[t];
-                        path[i][i] = 1;
-                    }
                 }
             }
         }
@@ -150,7 +77,7 @@ void Calc(int graph[N][N], const int* vertex, int N, int start, int* path, int s
     }
 }
 
-int _tmain()
+int main()
 {
     int graph[N][N] = { 0 };
     graph[0][1] = 4;
