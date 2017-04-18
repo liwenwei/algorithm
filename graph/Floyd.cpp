@@ -1,5 +1,26 @@
 ﻿#include <vector>
+#include <iostream>
 using namespace std;
+
+void Print(int start, int end, int length, const vector<int>& a)
+{
+    cout << end << ":\t";
+    if (length == INFINITY)
+    {
+        cout << "\u221E\n";
+        return;
+    }
+    cout << length << '\t';
+
+    int size = (int)a.size();
+    for (int i = 0; i < size; i++)
+    {
+        cout << a[i] + 1;
+        if (i != size - 1)
+            cout << " \u2192 ";
+    }
+    cout << '\n';
+}
 
 void MinPath(int start, int end, const vector<vector<int> >& next, vector<int>& path)
 {
@@ -30,7 +51,7 @@ void Floyd(const vector<vector<int> >& graph, vector<vector<int> >& sp)
     sp = graph;
     int size = (int)graph.size();
     int k, i, j;
-    for (k = 0; k < size; k++)
+    for (k = 0; k < size; k++) // 遍历中间结点，从src到dest
     {
         for (i = 0; i < size; i++)
         {
@@ -44,7 +65,6 @@ void Floyd(const vector<vector<int> >& graph, vector<vector<int> >& sp)
         }
     }
 }
-
 
 void Floyd2(const vector<vector<int> >& graph,
     vector<vector<int> >& sp, vector<vector<int> >& next)
@@ -79,7 +99,7 @@ void Min_Floyd(const vector<vector<int> >& graph)
     vector<vector<int> > next(N, vector<int>(N, -1));		//直接后继
     Floyd2(graph, sp, next);
 
-    //输出所有结点间的最短路径
+    // 输出所有结点间的最短路径
     vector<int> path;
     int i, j;
     for (i = 0; i < N; i++)
@@ -113,7 +133,7 @@ int main()
     graph[5][2] = 25;
     graph[5][3] = 120;
     graph[6][7] = 66;
-    
+
     Min_Floyd(graph);
 
     return 0;

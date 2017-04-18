@@ -44,7 +44,7 @@ void Dijkstra(const vector<vector<int>>& graph, int src, vector<int>& spath)
     }
 }
 
-void Dijkstra(const vector<vector<int>>& graph, int src, vector<int>& spath, vector<int>& pre)
+void Dijkstra1(const vector<vector<int>>& graph, int src, vector<int>& spath, vector<int>& pre)
 {
     int graphSize = graph.size();
     vector<bool> S(graphSize, false);
