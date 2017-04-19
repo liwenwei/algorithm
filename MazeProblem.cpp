@@ -1,67 +1,82 @@
 ﻿#include <iostream>  
 #include <cstdio>  
 #include <cstring>  
+#include <queue>
 
 using namespace std;
+#define ROW 5
+#define COL 5
 
-int vis[10][10], Map[10][10];
-int head, tot;
+// 4 neighbours: up, down, left, right
 int dx[4] = { 0, 1, -1, 0 };
 int dy[4] = { 1, 0, 0, -1 };
 
-struct node{
+struct Point
+{
     int x;
     int y;
-    int pre;
-}num[1100];
+};
 
-void print(int n)
-{
-    if (num[n].pre != -1){
-        print(num[n].pre);
-        printf("(%d, %d)\n", num[n].x, num[n].y);
-    }
-    return;
-}
+struct node{
+    Point point;
+    int dist;
+};
 
-void bfs()
+int bfs(int maze[][COL], Point src, Point dest)
 {
-    //注意区分head和tot,前一个表示每一步，后一个表示有多少种尝试  
-    tot = 0;
-    head = 0;
-    num[tot].x = 0, num[tot].y = 0, num[tot++].pre = -1;
-    while (head < tot)
+    bool visited[ROW][COL];
+    memset(visited, false, sizeof visited);
+
+    visited[src.x][src.y] = true;
+
+    queue<node> q;
+    node s = { src, 0 };
+    q.push(s);
+
+    while (!q.empty())
     {
+        node curr = q.front();
+        Point pt = curr.point;
+
+        if (pt.x == dest.x && pt.y == dest.y)
+            return curr.dist;
+
+        q.pop();
+
         for (int i = 0; i < 4; i++)
         {
-            int m = num[head].x + dx[i];
-            int n = num[head].y + dy[i];
-            if (m >= 5 || n >= 5 || m < 0 || n < 0 || Map[m][n] == 1)
-                continue;
-            Map[m][n] = 1;
-            num[tot].x = m;
-            num[tot].y = n;
-            num[tot].pre = head;
-            tot++;
-            if (m == 4 && n == 4)
-                print(head);
+            int row = pt.x + dx[i];
+            int col = pt.y + dy[i];
+            if ((row <= ROW && col <= COL && row >= 0 && col >= 0) &&
+                !visited[row][col] && maze[row][col])
+            {
+                visited[row][col] = true;
+                node adjNode = { { row, col }, curr.dist + 1 };
+                q.push(adjNode);
+                printf("(%d, %d)\n", row, col);
+            }
         }
-        head++;
     }
-}
 
+    return -1;
+}
 
 int main()
 {
-    int maze[5][5] = {
-        0, 1, 0, 0, 0,
-        0, 1, 0, 1, 0,
-        0, 0, 0, 0, 0,
-        0, 1, 1, 1, 0,
-        0, 0, 0, 1, 0,
+    int maze[ROW][COL] = {
+        1, 0, 1, 1, 1,
+        1, 0, 1, 0, 1,
+        1, 1, 1, 1, 1,
+        1, 0, 0, 0, 1,
+        1, 1, 1, 1, 1,
     };
-    printf("(0, 0)\n");
-    bfs();
-    printf("(4, 4)\n");
+
+    Point src = { 0, 0 };
+    Point dest = { 4, 4 };
+
+    int dist = bfs(maze, src, dest);
+
+    cout << "Shortest Path is " << dist << endl;
+
     return 0;
 }
