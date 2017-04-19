@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_DEPRECATE
 #include <cstdio>
 #include <vector>
 #include <queue>
@@ -5,15 +6,8 @@
 
 using namespace std;
 
-// http://theoryofprogramming.com/2014/12/25/breadth-first-search-algorithm/
-// http://theoryofprogramming.com/breadth-first-search-algorithm-using-queue/
-// http://www.thecrazyprogrammer.com/2015/09/breadth-first-search-bfs-program-in-c.html
-// http://blog.csdn.net/yeweiyang16/article/details/50651199
-
 void BFS(vector<vector<int> > adjacencyList, int parent[], int level[], int start)
 {
-    vector<int>::iterator itr;
-
     /*
     * we start from node 'start', so node 'start' is at level 0.
     * All immidiate neighbours are at level 1 and so on.
@@ -27,7 +21,7 @@ void BFS(vector<vector<int> > adjacencyList, int parent[], int level[], int star
     while (!VertexQueue.empty())
     {
         int newVertex = VertexQueue.front();
-        itr = adjacencyList[newVertex].begin();
+        vector<int>::iterator itr = adjacencyList[newVertex].begin();
 
         while (itr != adjacencyList[newVertex].end())
         {
@@ -43,17 +37,15 @@ void BFS(vector<vector<int> > adjacencyList, int parent[], int level[], int star
     }
 }
 
-int main()
+int main2()
 {
-    int vertices, edges, v1, v2, weight;
-
-    printf("Enter the number of Vertices -\n");
-    scanf("%d", &vertices);
+    const int vertices = 5;
+    int edges, v1, v2, weight;
 
     printf("Enter the number of edges -\n");
     scanf("%d", &edges);
 
-    vector<list<int> > adjacencyList(vertices + 1);
+    vector<vector<int> > adjacencyList(vertices + 1);
 
     printf("Enter the edges V1 -> V2\n");
     for (int i = 0; i < edges; i++)
@@ -69,7 +61,7 @@ int main()
     {
         printf("adjacencyList[%d]", i);
 
-        list<int>::iterator itr = adjacencyList[i].begin();
+        vector<int>::iterator itr = adjacencyList[i].begin();
         while (itr != adjacencyList[i].end())
         {
             printf(" -> %d", *itr);

@@ -106,4 +106,6 @@ int main()
     int start = 0;	//起点
     int path[N];	//最短路的值
     SPFA(graph, N, path, start);
+
+    return 0;
 }
