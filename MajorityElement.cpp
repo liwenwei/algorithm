@@ -63,18 +63,18 @@ int majorityElement2(vector<int> nums)
 int majorityElement3(vector<int> nums)
 {
     int candidate = nums[0];
-    int count = 0;
+    int counter = 0;
     for (size_t i = 0; i < nums.size(); i++)
     {
-        if (count == 0){
-            count++;
+        if (counter == 0){
+            counter++;
             candidate = nums[i];
         }
         else if (candidate == nums[i]) {
-            count++;
+            counter++;
         }
         else {
-            count--;
+            counter--;
         }
     }
     return candidate;

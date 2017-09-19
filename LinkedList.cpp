@@ -108,6 +108,25 @@ void deleteDuplicates1(ListNode* head)
 }
 
 /*
+两个链表的交点
+*/
+ListNode* getIntersectionNode(ListNode* root1, ListNode* root2)
+{
+    if (root1 == NULL || root2 == NULL) return NULL;
+
+    ListNode* curr1 = root1;
+    ListNode* curr2 = root2;
+
+    while (curr1 != curr2)
+    {
+        curr1 = curr1 == NULL ? root2 : curr1->next;
+        curr2 = curr2 == NULL ? root1 : curr2->next;
+    }
+
+    return curr1;
+}
+
+/*
 * fast pointer & slow pointer
 * 就像在一个环形的操场上跑步，一个跑的快，一个跑的慢，如果是是环状，就肯定会相遇
 */
@@ -124,6 +143,22 @@ bool hasCycle(ListNode *head)
     }
 
     return true;
+}
+
+bool hasCycle1(ListNode *head) 
+{
+    if(head == NULL || head->next == NULL) return false;
+    
+    ListNode *slow = head;
+    ListNode *fast = head->next;
+    while(slow != NULL && fast != NULL && fast->next != NULL) 
+    {
+        if(slow == fast) return true;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    
+    return false;
 }
 
 ListNode* detectCycle(ListNode* head)
