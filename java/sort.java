@@ -77,6 +77,58 @@ public class sort {
 			}
 		}
 	}
+	
+	/**
+	 * 快速排序
+	 * 
+	 * <p>
+	 * 快速排序使用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列（sub-lists）
+	 * 步骤：
+	 *   1. 从数列中挑出一个元素，称为基准（pivot）
+	 *   2. 重新排序数列，所有比基准小的元素摆放在基准前面，所有比基准值大的元素排在基准后面（相同的数可以放到任何一边）。
+	 *   在这个分区结束后，该基准就处于数列的中间位置，这个称为分区（partition）操作。
+	 *   3. 递归地（recursively）把小于基准值的子数列和大于基准值的子数列排序。
+	 * 
+	 * How to pick the pivot?
+	 *   1. Always pick first element as pivot
+	 *   2. Always pick last element as pivot
+	 *   3. Pick random element as pivot
+	 *   4. Pick median as pivot (implemented below)
+	 * 
+	 * </p>
+	 * 
+	 * @param arr
+	 */
+	public static void quickSort(int[] arr, int left, int right) {
+		int index = partition(arr, left, right);
+		if (left < index -1) {
+			quickSort(arr, left, index -1);
+		} 
+		if (index < right) {
+			quickSort(arr, index, right);
+		}
+	}
+	
+	private static int partition(int[] arr, int left, int right) {
+		int i = left, j = right;
+		int tmp;
+		int pivot = arr[(left + right) / 2];
+		
+		while (i <= j) {
+            while (arr[i] < pivot)
+                  i++;
+            while (arr[j] > pivot)
+                  j--;
+            if (i <= j) {
+            	tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+                i++;
+                j--;
+            }
+        }
+		return i;
+	}
 
 	public static void main(String[] args) {
 		int[] arr = { 6, 3, 1, 7, 5 };
@@ -90,5 +142,9 @@ public class sort {
 		int[] arr2 = { 6, 3, 1, 7, 5 };
 		slectionSort(arr2);
 		System.out.println(Arrays.toString(arr2));
+		
+		int[] arr3 = { 6, 3, 1, 7, 5 };
+		quickSort(arr3, 0, arr.length - 1);
+		System.out.println(Arrays.toString(arr3));
 	}
 }
