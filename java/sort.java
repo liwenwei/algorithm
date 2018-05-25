@@ -44,7 +44,6 @@ public class sort {
 	public static void insertionSort(int[] arr) {
 		int i, j, temp;
 		for (i = 0; i < arr.length - 1; i++) {
-			temp = arr[i];
 			for (j = i + 1; j > 0; j--) {
 				if (arr[j - 1] < arr[j])
 					break;
@@ -55,13 +54,41 @@ public class sort {
 		}
 	}
 
+	/**
+	 * 选择排序
+	 * 
+	 * <P>
+	 * 工作原理： 在未排序的序列中找到最小（最大）元素，存放到排序序列的起始位置，然后，
+	 * 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾
+	 * </P>
+	 * @param arr 数组
+	 */
+	public static void slectionSort(int[] arr) {
+		int i, j, temp, min;
+		for (i = 0; i < arr.length - 1; i++) {
+			min = i;
+			for (j = i + 1; j < arr.length; j++) {
+				if (arr[min] > arr[j]) {
+					min = j;
+				}
+				temp = arr[min];
+				arr[min] = arr[i];
+				arr[i] = temp;
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		int[] arr = { 6, 3, 1, 7, 5 };
 		bubbleSort(arr);
 		System.out.println(Arrays.toString(arr));
 
-		int[] arr1 = { 4, 1, 8, 3, 2 };
+		int[] arr1 = { 6, 3, 1, 7, 5 };
 		insertionSort(arr1);
 		System.out.println(Arrays.toString(arr1));
+
+		int[] arr2 = { 6, 3, 1, 7, 5 };
+		slectionSort(arr2);
+		System.out.println(Arrays.toString(arr2));
 	}
 }
