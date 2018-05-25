@@ -15,13 +15,15 @@ public class sort {
 	 * 总结： 每一次循环，都将最大的数排到最后的元素（像冒泡一样）
 	 * </p>
 	 * 
-	 * @param arr 数组
+	 * @param arr
+	 *            数组
 	 */
 	public static void bubbleSort(int[] arr) {
-		for (int i = 0; i < arr.length; i++) {
-			for (int j = 0; j < arr.length - 1 - i; j++) {
+		int i, j, temp;
+		for (i = 0; i < arr.length; i++) {
+			for (j = 0; j < arr.length - 1 - i; j++) {
 				if (arr[j] > arr[j + 1]) {
-					int temp = arr[j];
+					temp = arr[j];
 					arr[j] = arr[j + 1];
 					arr[j + 1] = temp;
 				}
@@ -29,9 +31,37 @@ public class sort {
 		}
 	}
 
+	/**
+	 * 插入排序
+	 * 
+	 * <P>
+	 * 工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。
+	 * </p>
+	 * 
+	 * @param arr
+	 *            数组
+	 */
+	public static void insertionSort(int[] arr) {
+		int i, j, temp;
+		for (i = 0; i < arr.length - 1; i++) {
+			temp = arr[i];
+			for (j = i + 1; j > 0; j--) {
+				if (arr[j - 1] < arr[j])
+					break;
+				temp = arr[j];
+				arr[j] = arr[j - 1];
+				arr[j - 1] = temp;
+			}
+		}
+	}
+
 	public static void main(String[] args) {
-		int[] arr = {6, 3, 1, 7, 5};
+		int[] arr = { 6, 3, 1, 7, 5 };
 		bubbleSort(arr);
 		System.out.println(Arrays.toString(arr));
+
+		int[] arr1 = { 4, 1, 8, 3, 2 };
+		insertionSort(arr1);
+		System.out.println(Arrays.toString(arr1));
 	}
 }
