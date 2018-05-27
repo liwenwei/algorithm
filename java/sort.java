@@ -101,33 +101,65 @@ public class sort {
 	 */
 	public static void quickSort(int[] arr, int left, int right) {
 		int index = partition(arr, left, right);
-		if (left < index -1) {
-			quickSort(arr, left, index -1);
-		} 
+		if (left < index - 1) {
+			quickSort(arr, left, index - 1);
+		}
 		if (index < right) {
 			quickSort(arr, index, right);
 		}
 	}
-	
+
 	private static int partition(int[] arr, int left, int right) {
 		int i = left, j = right;
 		int tmp;
 		int pivot = arr[(left + right) / 2];
-		
+
 		while (i <= j) {
-            while (arr[i] < pivot)
-                  i++;
-            while (arr[j] > pivot)
-                  j--;
-            if (i <= j) {
-            	tmp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tmp;
-                i++;
-                j--;
-            }
-        }
+			while (arr[i] < pivot)
+				i++;
+			while (arr[j] > pivot)
+				j--;
+			if (i <= j) {
+				tmp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = tmp;
+				i++;
+				j--;
+			}
+		}
 		return i;
+	}
+
+	private static void quickSortLastPivot(int[] arr, int low, int high) {
+		if (low < high) {
+			int pi = partitionLastPivot(arr, low, high);
+
+			quickSortLastPivot(arr, low, pi - 1);
+			quickSortLastPivot(arr, pi + 1, high);
+		}
+	}
+
+	private static int partitionLastPivot(int[] arr, int low, int high) {
+		int pivot = arr[high];
+		int i = low - 1; // Index of smaller element
+		for (int j = low; j < high; j++) {
+			// If current element is smaller than or
+			// equal to pivot
+			if (arr[j] <= pivot) {
+				i++; // increment index of smaller element
+
+				int temp = arr[j];
+				arr[j] = arr[i];
+				arr[i] = temp;
+			}
+		}
+
+		// swap arr[i+1] and arr[high] (or pivot)
+		int temp = arr[i + 1];
+		arr[i + 1] = arr[high];
+		arr[high] = temp;
+
+		return i + 1;
 	}
 
 	public static void main(String[] args) {
@@ -142,9 +174,13 @@ public class sort {
 		int[] arr2 = { 6, 3, 1, 7, 5 };
 		slectionSort(arr2);
 		System.out.println(Arrays.toString(arr2));
-		
+
 		int[] arr3 = { 6, 3, 1, 7, 5 };
-		quickSort(arr3, 0, arr.length - 1);
+		quickSort(arr3, 0, arr3.length - 1);
 		System.out.println(Arrays.toString(arr3));
+
+		int[] arr4 = { 6, 3, 1, 7, 5 };
+		quickSortLastPivot(arr4, 0, arr4.length - 1);
+		System.out.println(Arrays.toString(arr4));
 	}
 }
