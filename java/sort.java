@@ -161,26 +161,56 @@ public class sort {
 
 		return i + 1;
 	}
+	
+	/**
+	 * <p>
+	 * 是插入排序的一种更高效的改进版本
+	 * </p>
+	 * <p>
+	 * 一个更好理解的希尔排序实现：将数组列在一个表中并对列排序（用插入排序）。重复这过程，不过每次用更长的列来进行。
+	 * 最后整个表就只有一列了。将数组转换至表是为了更好地理解这算法
+	 * </p>
+	 * @param arr
+	 */
+	private static void shellSort(int[] arr) {
+		int gap = 1, i, j, len = arr.length;
+		int temp;
+		while (gap < len / 3)
+			gap = gap * 3 + 1;
+		for (; gap > 0; gap /= 3) {
+			for (i = gap; i < len; i++) {
+				temp = arr[i];
+				for (j = i - gap; j >= 0 && arr[j] > temp; j -= gap) {
+					arr[j + gap] = arr[j];
+				}
+				arr[j + gap] = temp;
+			}
+		}
+	}
 
 	public static void main(String[] args) {
 		int[] arr = { 6, 3, 1, 7, 5 };
 		bubbleSort(arr);
-		System.out.println(Arrays.toString(arr));
+		System.out.println("bubble sort:" + Arrays.toString(arr));
 
 		int[] arr1 = { 6, 3, 1, 7, 5 };
 		insertionSort(arr1);
-		System.out.println(Arrays.toString(arr1));
+		System.out.println("insertion sort:" + Arrays.toString(arr1));
 
 		int[] arr2 = { 6, 3, 1, 7, 5 };
-		slectionSort(arr2);
-		System.out.println(Arrays.toString(arr2));
+		selectionSort(arr2);
+		System.out.println("selection sort:" + Arrays.toString(arr2));
 
 		int[] arr3 = { 6, 3, 1, 7, 5 };
 		quickSort(arr3, 0, arr3.length - 1);
-		System.out.println(Arrays.toString(arr3));
+		System.out.println("quick sort:" + Arrays.toString(arr3));
 
 		int[] arr4 = { 6, 3, 1, 7, 5 };
 		quickSortLastPivot(arr4, 0, arr4.length - 1);
-		System.out.println(Arrays.toString(arr4));
+		System.out.println("quick sort last pivot:" + Arrays.toString(arr4));
+		
+		int[] arr5 = { 6, 3, 1, 7, 5 };
+		shellSort(arr5);
+		System.out.println("shell sort:" + Arrays.toString(arr5));
 	}
 }
