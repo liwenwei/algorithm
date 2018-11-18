@@ -250,3 +250,7 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+*.project
+java/.classpath
+algorithms-fourth-edition/.classpath
+algorithms-fourth-edition/.settings/
