@@ -63,7 +63,7 @@ public class sort {
 	 * </P>
 	 * @param arr 数组
 	 */
-	public static void slectionSort(int[] arr) {
+	public static void selectionSort(int[] arr) {
 		int i, j, temp, min;
 		for (i = 0; i < arr.length - 1; i++) {
 			min = i;
