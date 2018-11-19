@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class cha1 {
 
@@ -18,7 +19,7 @@ public class cha1 {
 			System.out.print((i + 1) + " "); // column line
 		}
 		System.out.println();
-		
+
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(i + 1); // row line
 			for (int j = 0; j < arr[i].length; j++) {
@@ -31,9 +32,37 @@ public class cha1 {
 			System.out.println();
 		}
 	}
-	
+
+	// 1.1.13
+	// transpose matrices(矩阵转置)
 	private static int[][] transpose(int[][] arr) {
-		
+		int row = arr[0].length;
+		int column = arr.length;
+		int[][] arr_transpose = new int[row][column];
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < column; j++) {
+				arr_transpose[i][j] = arr[j][i];
+			}
+		}
+		return arr_transpose;
+	}
+	
+	// 1.1.14
+	// 接受一个整型参数 N， 返回不大于 log2N 的最大整数
+	// x <= log2N => 2^x <= N => return x
+	private static int lg(int N) {
+		if(N <= 0) return 0;
+		int max = 0;
+		int x = 0;
+		while (max < N) {
+			int i = x;
+			while (i > 0) {
+				max *= 2;
+				i--;
+			}
+			x++;
+		}
+		return x;
 	}
 
 	public static void main(String[] args) {
@@ -41,6 +70,11 @@ public class cha1 {
 
 		boolean[][] boolarr = { { true, false }, { false, true } };
 		printBooleanArray(boolarr);
+		
+		int[][] transposeArr = {{1,2}, {3, 4}, {5, 6}};
+		transpose(transposeArr);
+		
+		System.out.println(lg(4));
 
 	}
 
