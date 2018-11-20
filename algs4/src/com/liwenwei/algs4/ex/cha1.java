@@ -1,3 +1,5 @@
+package com.liwenwei.algs4.ex;
+
 import java.util.Arrays;
 
 public class cha1 {
@@ -12,7 +14,7 @@ public class cha1 {
 	}
 
 	// 1.1.11
-	// æ‰“å°å‡ºä¸€ä¸ªäºŒç»´å¸ƒå°”æ•°ç»„çš„å†…å®¹ã€‚ å…¶ä¸­ï¼Œ ä½¿ç”¨ * è¡¨ç¤ºçœŸï¼Œ ç©ºæ ¼è¡¨ç¤ºå‡ã€‚ æ‰“å°å‡ºè¡Œå·å’Œåˆ—å·
+	// ´òÓ¡³öÒ»¸ö¶şÎ¬²¼¶ûÊı×éµÄÄÚÈİ¡£ ÆäÖĞ£¬ Ê¹ÓÃ * ±íÊ¾Õæ£¬ ¿Õ¸ñ±íÊ¾¼Ù¡£ ´òÓ¡³öĞĞºÅºÍÁĞºÅ
 	private static void printBooleanArray(boolean[][] arr) {
 		System.out.print(" ");
 		for (int i = 0; i < arr[0].length; i++) {
@@ -34,7 +36,7 @@ public class cha1 {
 	}
 
 	// 1.1.13
-	// transpose matrices(çŸ©é˜µè½¬ç½®)
+	// transpose matrices(¾ØÕó×ªÖÃ)
 	private static int[][] transpose(int[][] arr) {
 		int row = arr[0].length;
 		int column = arr.length;
@@ -48,18 +50,25 @@ public class cha1 {
 	}
 	
 	// 1.1.14
-	// æ¥å—ä¸€ä¸ªæ•´å‹å‚æ•° Nï¼Œ è¿”å›ä¸å¤§äº log2N çš„æœ€å¤§æ•´æ•°
+	// ½ÓÊÜÒ»¸öÕûĞÍ²ÎÊı N£¬ ·µ»Ø²»´óÓÚ log2N µÄ×î´óÕûÊı
 	// x <= log2N => 2^x <= N => return x
 	private static int lg(int N) {
-		if(N <= 0) return 0;
-		int max = 0;
+		int max = 1;
 		int x = 0;
-		while (max < N) {
-			int i = x;
-			while (i > 0) {
-				max *= 2;
-				i--;
+		while (max <= N) {
+			max *= 2;
+			if(max <= N) {
+				x++;
 			}
+		}
+		return x;
+	}
+	
+	// 1.1.14
+	// Ã¿´Î³ı2
+	private static int lg1(int N) {
+		int x = 1;
+		for (int n = N; n > 1; n /= 2) {
 			x++;
 		}
 		return x;
@@ -74,7 +83,8 @@ public class cha1 {
 		int[][] transposeArr = {{1,2}, {3, 4}, {5, 6}};
 		transpose(transposeArr);
 		
-		System.out.println(lg(4));
+		System.out.println(lg(2049));
+		System.out.println(lg(2049));
 
 	}
 
