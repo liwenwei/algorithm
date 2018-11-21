@@ -14,7 +14,7 @@ public class cha1 {
 	}
 
 	// 1.1.11
-	// ´òÓ¡³öÒ»¸ö¶şÎ¬²¼¶ûÊı×éµÄÄÚÈİ¡£ ÆäÖĞ£¬ Ê¹ÓÃ * ±íÊ¾Õæ£¬ ¿Õ¸ñ±íÊ¾¼Ù¡£ ´òÓ¡³öĞĞºÅºÍÁĞºÅ
+	// äºŒç»´å¸ƒå°”æ•°ç»„çš„å†…å®¹ã€‚ å…¶ä¸­ï¼Œ ä½¿ç”¨ * è¡¨ç¤ºçœŸï¼Œ ç©ºæ ¼è¡¨ç¤ºå‡ã€‚ æ‰“å°å‡ºè¡Œå·å’Œåˆ—å·
 	private static void printBooleanArray(boolean[][] arr) {
 		System.out.print(" ");
 		for (int i = 0; i < arr[0].length; i++) {
@@ -36,7 +36,7 @@ public class cha1 {
 	}
 
 	// 1.1.13
-	// transpose matrices(¾ØÕó×ªÖÃ)
+	// transpose matrices(è½¬ç½®çŸ©é˜µ)
 	private static int[][] transpose(int[][] arr) {
 		int row = arr[0].length;
 		int column = arr.length;
@@ -50,7 +50,7 @@ public class cha1 {
 	}
 	
 	// 1.1.14
-	// ½ÓÊÜÒ»¸öÕûĞÍ²ÎÊı N£¬ ·µ»Ø²»´óÓÚ log2N µÄ×î´óÕûÊı
+	// æ¥å—ä¸€ä¸ªæ•´å‹å‚æ•° Nï¼Œ è¿”å›ä¸å¤§äº log2N çš„æœ€å¤§æ•´æ•°
 	// x <= log2N => 2^x <= N => return x
 	private static int lg(int N) {
 		int max = 1;
@@ -65,7 +65,7 @@ public class cha1 {
 	}
 	
 	// 1.1.14
-	// Ã¿´Î³ı2
+	// æ¯æ¬¡é™¤2
 	private static int lg1(int N) {
 		int x = 1;
 		for (int n = N; n > 1; n /= 2) {

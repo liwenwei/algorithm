@@ -2,7 +2,7 @@ package com.liwenwei.algs4.ex;
 
 public class Ex_1_1_27_Binomial {
 
-	// 二项分布
+	// 浜岄」鍒嗗竷
 	public static double binomial(int N, int k, double p) {
 		if (N == 0 && k == 0)
 			return 1.0;
