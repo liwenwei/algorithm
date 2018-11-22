@@ -1,4 +1,4 @@
-package com.liwenwei.algs4.ex;
+package com.liwenwei.algs4.ex.chapter1;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
@@ -16,6 +16,7 @@ public class Ex_1_1_36_ShuffleCheck {
 			arr[i] = i;
 		}
 
+		// Entities close to N/M
 		for (int i = 0; i < n; i++) {
 			shuffle(arr);
 			for (int j = 0; j < arr.length; j++) {
@@ -24,7 +25,6 @@ public class Ex_1_1_36_ShuffleCheck {
 		}
 
 		printTable(position);
-		// Entities close to N/M
 	}
 
 	private static void shuffle(double[] a) {

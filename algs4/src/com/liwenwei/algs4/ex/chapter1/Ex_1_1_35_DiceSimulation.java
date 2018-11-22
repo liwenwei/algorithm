@@ -1,4 +1,4 @@
-package com.liwenwei.algs4.ex;
+package com.liwenwei.algs4.ex.chapter1;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
