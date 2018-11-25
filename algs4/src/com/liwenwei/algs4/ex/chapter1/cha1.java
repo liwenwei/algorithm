@@ -1,7 +1,5 @@
 package com.liwenwei.algs4.ex.chapter1;
 
-import java.util.Arrays;
-
 public class cha1 {
 
 	// 1.1.9
@@ -84,7 +82,7 @@ public class cha1 {
 		transpose(transposeArr);
 		
 		System.out.println(lg(2049));
-		System.out.println(lg(2049));
+		System.out.println(lg1(2049));
 
 	}
 

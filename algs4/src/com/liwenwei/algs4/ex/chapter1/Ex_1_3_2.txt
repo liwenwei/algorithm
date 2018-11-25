@@ -1,0 +1,25 @@
+Input:
+it was - the best - of times - - - it was - the - - 
+
+process:
+it
+it was
+it -> was
+it the
+it the best
+it the -> was best
+it the of
+it the of times
+it the of -> was best times
+it the -> was best times of
+it -> was best times of the
+it it
+it it was
+it it -> was best times of the was
+it it the
+it it -> was best times of the was the
+it
+-> was best times of the was the it
+
+output:
+was best times of the was the it
