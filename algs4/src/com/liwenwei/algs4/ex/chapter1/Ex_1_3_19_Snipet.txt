@@ -1,0 +1,17 @@
+
+public Node deleteTail(Node first) {
+    if (first == null || first.next == null) {
+        first = null;
+        return first;
+    }
+    
+    Node node = first;
+    while (node.next != null) {
+        if (node.next.next == null) {
+            node.next = null
+        } else {
+            node = node.next;
+        }
+    }
+    return first;
+}
