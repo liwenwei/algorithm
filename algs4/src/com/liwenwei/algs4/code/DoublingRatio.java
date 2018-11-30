@@ -43,7 +43,7 @@ public class DoublingRatio {
 	 * 在比例趋近于极限时， 只需要不断乘以该比例即可得到更大规模的问题的运行时间。
 	 * 这里， 增长数量级的近似模型是一个幂次法则，指数为该比例的以2为底的对数
 	 * 
-	 * 这个实验中，比例的收敛值~8
+	 * 这个实验中，比例的时间倍率的收敛值~8
 	 * @param args
 	 */
 	public static void main(String[] args) {

@@ -11,9 +11,6 @@ package com.liwenwei.algs4.ex.chapter1;
 public class Ex_1_4_1_MathematicalInduction {
 	
 	public static void main(String[] args) {
-		System.out.println(countThreeCombinations(0));
-		System.out.println(countThreeCombinations(1));
-		System.out.println(countThreeCombinations(2));
 		System.out.println(countThreeCombinations(3));
 		System.out.println(countThreeCombinations(4));
 		System.out.println(countThreeCombinations(5));
@@ -25,6 +22,23 @@ public class Ex_1_4_1_MathematicalInduction {
 	}
 	
 	/**
+	 * 直接根据组合公式:
+	 * 从n个元素中取出k个元素，k个元素的组合数量为：
+	 * C(k, n) = (n  k) = P(k, n)! / k! =  n! / k!(n - k)!
+	 * 
+	 * 根据公式推导出：
+	 * k=3
+	 * C(k, n) = n! / 3!(n-3)! = n(n-1)(n-2)/6
+	 * 
+	 * @param N
+	 * @return
+	 */
+	public static int countThreeCombinations(int N) { 
+		return N * (N - 1) * (N - 2) / 6;
+	}
+	
+	/**
+	 * 错误
 	 * 
 	 * N >= 3
 	 * 当N=3， count=1
@@ -50,13 +64,13 @@ public class Ex_1_4_1_MathematicalInduction {
 	 * @param N
 	 * @return
 	 */
-	public static int countThreeCombinations(int N) {
+	public static int derivation(int N) {
 		if (N < 3) {
 			return 0;
 		} else if (N == 3) {
 			return 1;
 		} else {
-			return countThreeCombinations(N - 1) + N - 2;
+			return derivation(N - 1) + N - 2;
 		}
 	}
 }

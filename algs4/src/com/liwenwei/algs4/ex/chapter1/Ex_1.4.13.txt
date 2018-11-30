@@ -1,0 +1,22 @@
+1.4.13
+
+a. Accumulator
+16 + 8 + 4 + 4 = 32 bytes
+
+b. Transaction 
+16 + 8 + 8 + 8 = 40 bytes
+
+c. FixedCapacityStackOfStrings with capacity C and N entries
+16 + 16 + 4 + 4 + 8N + 56N + 2N^2 + 4 + 4 = 2N^2 + 64N + 48 bytes
+
+d. Point2D 
+16 + 8 + 8 = 32 bytes
+
+e. Interval1D
+16 + 8 + 8 = 32 bytes
+
+f. Interval2D
+16 + 8 + 8 = 32 bytes
+
+g. Double
+16 + 8 = 24 bytes

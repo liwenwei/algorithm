@@ -1,0 +1,11 @@
+给出下面这些量的近似
+
+a. N + 1 ~ N
+b. 1 + 1/N ~ 1
+c. (1+1/N)(1+2/N) ~ 1
+d. 2N^3-15N^2+N ~ N^3
+e. lg(2N)/lgN = lgN(2N) ~ lg(2N) (对数的换底公式)
+f. lg(N^2+1)/lgN = lgN(N^2+1) ~ lg(N^2+1)
+g. N^100/2^N ~ N^100
+
+关于对数的公式可以参考对数恒等式（https://zh.wikipedia.org/wiki/%E5%AF%B9%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F）
