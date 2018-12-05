@@ -13,31 +13,71 @@
 
 package com.liwenwei.algs4.code;
 
+import java.util.NoSuchElementException;
+
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
+
 public class BinarySearchST<Key extends Comparable<Key>, Value> {
-	
+	private static final int INIT_CAPACITY = 2;
 	private Key[] keys;
 	private Value[] vals;
 	private int N;
-	
+
+	public BinarySearchST() {
+		this(INIT_CAPACITY);
+	}
+
 	public BinarySearchST(int capacity) {
 		keys = (Key[]) new Comparable[capacity];
 		vals = (Value[]) new Object[capacity];
 	}
-	
+
 	public boolean contains(Key key) {
-		int cmp = rank(key);
-		return cmp < N && keys[cmp].compareTo(key) == 0;
+		if (key == null)
+			throw new IllegalArgumentException("argument to contains() is null");
+		return get(key) != null;
 	}
-	
+
+	public void resize(int capacity) {
+		assert capacity >= N;
+		Key[] tempk = (Key[]) new Comparable[capacity];
+		Value[] tempv = (Value[]) new Object[capacity];
+		for (int i = 0; i < N; i++) {
+			tempk[i] = keys[i];
+			tempv[i] = vals[i];
+		}
+		keys = tempk;
+		vals = tempv;
+	}
+
 	public int size() {
 		return N;
 	}
-	
+
+	public int size(Key lo, Key hi) {
+		if (lo == null)
+			throw new IllegalArgumentException("first argument to size() is null");
+		if (hi == null)
+			throw new IllegalArgumentException("second argument to size() is null");
+
+		if (lo.compareTo(hi) > 0) {
+			return 0;
+		}
+		if (contains(hi)) {
+			return rank(hi) - rank(lo) + 1;
+		} else {
+			return rank(hi) - rank(lo);
+		}
+	}
+
 	public boolean isEmpty() {
 		return N != 0;
 	}
-	
+
 	public Value get(Key key) {
+		if (key == null)
+			throw new IllegalArgumentException("argument to get() is null");
 		if (isEmpty()) {
 			return null;
 		}
@@ -48,7 +88,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * 排序
 	 * 
@@ -73,13 +113,28 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 		}
 		return low;
 	}
-	
+
 	public void put(Key key, Value val) {
+		if (key == null)
+			throw new IllegalArgumentException("first argument to put() is null");
+
+		if (val == null) {
+			delete(key);
+			return;
+		}
+
+		// key is already in table
 		int i = rank(key);
 		if (i < N && keys[i].compareTo(key) == 0) {
 			vals[i] = val;
 			return;
 		}
+
+		// insert new key-value pair
+		if (N == keys.length) {
+			resize(2 * keys.length);
+		}
+
 		for (int j = N; j > i; j--) {
 			keys[j] = keys[j - 1];
 			vals[j] = vals[j - 1];
@@ -87,40 +142,99 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 		keys[i] = key;
 		vals[i] = val;
 		N++;
+
+		assert check();
 	}
-	
+
 	public void delete(Key key) {
+		if (key == null)
+			throw new IllegalArgumentException("argument to delete() is null");
+		if (isEmpty())
+			return;
+
 		int i = rank(key);
-		if (i < N && keys[i].compareTo(key) == 0) {
-			for (int j = i; j < N - 1; j++) {
-				keys[j] = keys[j + 1];
-				vals[j] = vals[j + 1];
-			}
-			N--;
+
+		// key not in table
+		if (i == N || keys[i].compareTo(key) != 0) {
+			return;
+		}
+
+		for (int j = i; j < N - 1; j++) {
+			keys[j] = keys[j + 1];
+			vals[j] = vals[j + 1];
+		}
+
+		N--;
+		keys[N] = null; // to avoid loitering
+		vals[N] = null;
+
+		// resize if 1/4 full
+		if (N > 0 && N == keys.length / 4) {
+			resize(keys.length / 2);
 		}
 	}
-	
+
+	public void deleteMin() {
+		if (isEmpty())
+			throw new NoSuchElementException("Symbol table underflow error");
+		delete(min());
+	}
+
+	public void deleteMax() {
+		if (isEmpty())
+			throw new NoSuchElementException("Symbol table underflow error");
+		delete(max());
+	}
+
 	public Key min() {
+		if (isEmpty())
+			throw new NoSuchElementException("called min() with empty symbol table");
 		return keys[0];
 	}
-	
+
 	public Key max() {
+		if (isEmpty())
+			throw new NoSuchElementException("called max() with empty symbol table");
 		return keys[N - 1];
 	}
-	
+
 	public Key select(int k) {
+		if (k < 0 || k >= size()) {
+			throw new IllegalArgumentException("called select() with invalid argument: " + k);
+		}
 		return keys[k];
 	}
-	
-	public Key ceiling(Key key) {
-		int i = rank(key);
-		return keys[i];
-	}
-	
+
 	public Key floor(Key key) {
-		
+		if (key == null)
+			throw new IllegalArgumentException("argument to floor() is null");
+		int i = rank(key);
+		if (i < N && key.compareTo(keys[i]) == 0) {
+			return keys[i];
+		}
+
+		if (i == 0) {
+			return null;
+		} else {
+			return keys[i - 1];
+		}
 	}
-	
+
+	public Key ceiling(Key key) {
+		if (key == null)
+			throw new IllegalArgumentException("argument to ceiling() is null");
+		int i = rank(key);
+		if (i == N) {
+			return null;
+		} else {
+			return keys[i];
+		}
+	}
+
+	public Iterable<Key> keys() {
+		return keys(min(), max());
+	}
+
 	public Iterable<Key> keys(Key low, Key high) {
 		Queue<Key> q = new Queue<Key>();
 		for (int i = rank(low); i < rank(high); i++) {
@@ -131,5 +245,46 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 		}
 		return q;
 	}
-	
+
+	/***************************************************************************
+	 * Check internal invariants.
+	 ***************************************************************************/
+
+	private boolean check() {
+		return isSorted() && rankCheck();
+	}
+
+	private boolean isSorted() {
+		for (int i = 0; i < N - 1; i++) {
+			if (keys[i].compareTo(keys[i + 1]) > 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	private boolean rankCheck() {
+		for (int i = 0; i < N; i++) {
+			if (i != rank(select(i))) {
+				return false;
+			}
+		}
+		for (int i = 0; i < N; i++) {
+			if (keys[i].compareTo(select(rank(keys[i]))) != 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static void main(String[] args) {
+		BinarySearchST<String, Integer> st = new BinarySearchST<String, Integer>();
+		for (int i = 0; !StdIn.isEmpty(); i++) {
+			String key = StdIn.readString();
+			st.put(key, i);
+		}
+		for (String s : st.keys())
+			StdOut.println(s + " " + st.get(s));
+	}
+
 }
