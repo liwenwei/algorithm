@@ -69,7 +69,7 @@ public class Queue<E> implements Iterable<E> {
 		
 		@Override
 		public boolean hasNext() {
-			return node.next != null;
+			return node != null;
 		}
 
 		@Override
@@ -79,11 +79,11 @@ public class Queue<E> implements Iterable<E> {
 		
 		@Override
 		public E next() {
-			if (!hasNext()) {
-				throw new NoSuchElementException();
-			};
-			E item = node.item;
-			node = node.next;
+			E item = null;
+			if (node != null) {
+				item = node.item;
+				node = node.next;
+			}
 			return item;
 		}
 	}

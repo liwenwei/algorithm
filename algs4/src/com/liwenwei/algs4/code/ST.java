@@ -6,6 +6,7 @@
  ******************************************************************************/
 package com.liwenwei.algs4.code;
 
+import java.util.Iterator;
 import java.util.TreeMap;
 
 import edu.princeton.cs.algs4.StdIn;
@@ -18,7 +19,7 @@ import edu.princeton.cs.algs4.StdOut;
  * @param <Key>
  * @param <Value>
  */
-public class ST<Key extends Comparable<Key>, Value> {
+public class ST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
 	
 	private TreeMap<Key, Value> st;
 	
@@ -134,5 +135,10 @@ public class ST<Key extends Comparable<Key>, Value> {
 		for (String s : st.keys()) {
 			StdOut.println(s + " " + st.get(s));
 		}
+	}
+
+	@Override
+	public Iterator<Key> iterator() {
+		return st.keySet().iterator();
 	}
 }
