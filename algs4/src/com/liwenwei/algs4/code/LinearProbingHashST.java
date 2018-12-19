@@ -1,6 +1,10 @@
 /******************************************************************
  * 
- * 基于线性探测的符号表
+ * 基于线性探测法（开发地址法）的Hashtable，处理hashtable碰撞冲突的方法之一
+ * 
+ * 1. 依靠数组中的空位解决碰撞冲突，基于这种策略的所有方法被统称为开放地址散列表
+ * 2. 开放地址类的hashtable的核心思想是，与其将内存用作链表，不如将他们作为在散列表中的空元素，
+ * 这些空元素可以作为查找结果的标记
  * 
  * @author liwenwei
  *
@@ -58,6 +62,14 @@ public class LinearProbingHashST<Key, Value> {
 		return (key.hashCode() & 0x7fffffff) % m;
 	}
 
+	/**
+	 * 用散列函数找到键在数组中的索引，检查其中的键和被查找的键是否相同。
+	 * - 如果相同，就替换键的值
+	 * - 如果不同继续查找（将数组索引增大，到达数组结尾时折回数组的开头），直到找到该键或者遇到一个空元素
+	 * 
+	 * @param key Key
+	 * @param val Value
+	 */
 	public void put(Key key, Value val) {
 		if (key == null)
 			throw new IllegalArgumentException("The key is null");
