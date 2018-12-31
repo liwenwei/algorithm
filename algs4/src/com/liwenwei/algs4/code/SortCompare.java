@@ -30,7 +30,6 @@ public class SortCompare {
 		for (int i = 0; i < T; i++) {
 			for (int j = 0; j < N; j++)
 				a[i] = StdRandom.uniform();
-			System.out.println(Arrays.toString(a));
 			total += time(alg, a);
 		}
 		return total;
@@ -40,7 +39,7 @@ public class SortCompare {
 		String alg1 = args[0];
 		String alg2 = args[1];
 		int N = Integer.parseInt(args[2]);
-		int T = Integer.parseInt(args[2]);
+		int T = Integer.parseInt(args[3]);
 		double t1 = timeRandomInput(alg1, N, T);
 		double t2 = timeRandomInput(alg2, N, T);
 		StdOut.printf("For %d random Doubles\n    %s is", N, alg1);
