@@ -1,7 +1,5 @@
 package com.liwenwei.algs4.code;
 
-import java.util.Arrays;
-
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
@@ -13,6 +11,10 @@ public class SortCompare {
 			Insertion.sort(a);
 		} else if (alg.equals("Selection")) {
 			Selection.sort(a);
+		} else if (alg.equals("Merge")) {
+			Merge.sort(a);
+		} else if (alg.equals("Shell")) {
+			Shell.sort(a);
 		}
 		return timer.elapsedTime();
 	}
