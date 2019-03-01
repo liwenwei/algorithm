@@ -20,7 +20,7 @@ public class Merge {
 	
 	// Merge a[low .. mid] with a[mid+1 .. high] using aux[low .. high]
 	private static void merge(Comparable[] a, Comparable[] aux, int low, int mid, int high) {
-		for (int k = 0; k < a.length; k++) {
+		for (int k = low; k <= high; k++) {
 			aux[k] = a[k];
 		}
 		

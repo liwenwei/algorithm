@@ -13,8 +13,8 @@ import java.util.Arrays;
 public class Ex2_2_10_FasterMege {
 
 	/**
-	 * <b>这个算法相较于{@link com.liwenwei.algs4.code.Merge#merge}做了一些优化，按降序将a[]的后半段
-	 * 复制到aux[]中，然后再归并。</b>
+	 * <b>这个算法相较于{@link com.liwenwei.algs4.code.Merge#merge}做了一些优化，做了一个精巧的结构设计，
+	 * 按降序将a[]的后半段复制到aux[]中，然后再归并。</b>
 	 * <p>例如a = {2,5,11,4,9,10}, 按降序将a后半段复制到aux结果为{2，5，11，10，9，4}</p>
 	 * <p>为什么这样就能去掉检测某半边是否用尽的判断条件呢？</p>
 	 * <p>因为左右扫描指针 i->..<-j 从左右两侧向中间扫描的过程中，每次取得当前值都是左边的最小值和右边的最大值
