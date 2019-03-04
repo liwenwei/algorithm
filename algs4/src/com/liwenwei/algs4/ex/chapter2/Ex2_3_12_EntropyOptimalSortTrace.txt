@@ -1,0 +1,21 @@
+2.3.12 Show, in the style of the trace given with the code, how the entropy-optimal sort(熵最优的排序) first partitions the array B A B A B A B A C A D A B R A
+
+什么是entropy-optimal sort？
+实际应用中可能出现大量重复的元素，例如将人员资料按照生日、性别排序。在这种情况下，快速排序性能尚可，但有优化的空间，一个简单的想法是将数组切分为三部分，分别对应小于、等于和大于切分元素的数组元素。
+
+第一次切分的数组轨迹：
+B A B A B A B A C A D A B R A
+
+B A B A B A B A C A D A B R A
+lt                          gt
+i
+A B B A B A B A C A D A B R A
+  lt                        gt
+  i
+A B B A B A B A C A D A B R A
+  lt                        gt
+  i
+
+
+
+      

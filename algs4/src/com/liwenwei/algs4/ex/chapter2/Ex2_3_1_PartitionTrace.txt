@@ -1,0 +1,36 @@
+2.3.1 按照partition()方法的轨迹的格式给出该方法是如何切分数组 E A S Y Q U E S T I O N
+
+E A S Y Q U E S T I O N
+-
+P
+E A S Y Q U E S T I O N
+  -                   -
+E A S Y Q U E S T I O N
+  -                 -  
+E A S Y Q U E S T I O N
+  -               -    
+E A S Y Q U E S T I O N
+  -             -      
+E A S Y Q U E S T I O N
+  -           -       
+E A S Y Q U E S T I O N
+  -         -          
+E A S Y Q U E S T I O N
+  -       -            
+E A S Y Q U E S T I O N
+  -     -              
+E A S Y Q U E S T I O N
+  -   -                
+E A S Y Q U E S T I O N
+  - -                  
+A E S Y Q U E S T I O N
+- -                   
+
+
+
+
+
+
+
+
+

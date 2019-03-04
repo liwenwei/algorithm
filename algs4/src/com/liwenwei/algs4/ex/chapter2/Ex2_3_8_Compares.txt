@@ -1,0 +1,18 @@
+2.3.8 Quick.sort()在处理N个全部重复的元素时大约需要多少次比较？
+
+核心compare的code snippet：
+while (true) {
+    while (arr[++i] < arr[pivot]) if (i == high) break;
+    while (arr[--j] > arr[pivot]) if (j == low) break;
+    if (i > j) break;
+    swap(i, j);
+}
+
+首先要看partition切割的数组,根据code，可以得出左右扫描指针每次都是在中间（n/2）相遇
+n
+[1, n/2-1] [n/2+1, n]
+[1, (n-2)/4-1] [(n-2)/4+1, n/2-1] [1, (n-2)/4-1]
+
+一共partition了logN
+
+可以得出每次partition的时候compare的次数都是n，所以一共compare了NlogN
