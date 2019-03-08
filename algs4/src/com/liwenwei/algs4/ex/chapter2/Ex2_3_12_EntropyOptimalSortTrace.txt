@@ -5,17 +5,54 @@
 
 第一次切分的数组轨迹：
 B A B A B A B A C A D A B R A
-
-B A B A B A B A C A D A B R A
-lt                          gt
-i
+_ _
 A B B A B A B A C A D A B R A
   lt                        gt
   i
+  _ _
 A B B A B A B A C A D A B R A
   lt                        gt
-  i
-
+    i
+A A B B B A B A C A D A B R A
+    lt                      gt
+      i
+A A B B B A B A C A D A B R A
+    lt                      gt
+        i
+    _     _
+A A A B B B B A C A D A B R A
+      lt                    gt
+          i
+A A A B B B B A C A D A B R A
+      lt                    gt
+            i
+A A A A B B B B C A D A B R A
+        lt                  gt
+              i
+                _           _
+A A A A B B B B A A D A B R C
+        lt                gt
+                i
+		_       _		
+A A A A A B B B B A D A B R C
+          lt              gt
+                i
+          _       _
+A A A A A A B B B B D A B R C
+            lt            gt
+                  i
+				    _     _
+A A A A A A B B B B R A B D C
+            lt          gt
+                    i
+					_   _
+A A A A A A B B B B B A R D C
+            lt        gt
+                    i
+            _         _
+A A A A A A A B B B B B R D C
+              lt      gt
+                      i
 
 
       

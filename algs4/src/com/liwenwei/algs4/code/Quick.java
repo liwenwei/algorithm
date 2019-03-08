@@ -20,7 +20,7 @@ public class Quick {
 		while (true) {
 			while (less(a[++i], v)) if (i == high) break;
 			while (less(v, a[--j])) if (j == low) break;
-			if (i > j) break;
+			if (i >= j) break;
 			exch(a, i, j);
 		}
 		exch(a, low, j);
@@ -32,7 +32,7 @@ public class Quick {
 	}
 	
 	private static void sort(Comparable[] a, int low, int high) {
-		if (low > high) return;
+		if (low >= high) return;
 		int j = partition(a, low, high);
 		sort(a, low, j - 1);
 		sort(a, j + 1, high);
@@ -58,7 +58,7 @@ public class Quick {
 
 	public static void main(String[] args) {
 		Integer[] a = { 6, 4, 10, 9, 7, 7, 8, 10, 8, 9, 10 };
-		Shell.sort(a);
+		Quick.sort(a);
 		System.out.println(Arrays.toString(a));
 	}
 }

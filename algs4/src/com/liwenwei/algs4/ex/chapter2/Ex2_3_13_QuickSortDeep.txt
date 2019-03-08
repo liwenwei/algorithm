@@ -1,0 +1,17 @@
+2.3.13 在最佳、平均和最坏情况下，快速排序的递归深度分别是多少？
+
+首先，根据{@Linked com.liwenwei.algs4.code.Quick#sort()}
+while (true)
+   while (arr[++i] < pivot) if (i == high) break;
+   while (pivot < arr[--j]) if (j == low) break;
+   if (i >= j) break;
+   swap(i, j);
+
+可以得出：
+|         	| case                 	| recursive depth 	| Description                                                       	|
+|---------	|----------------------	|-----------------	|-------------------------------------------------------------------	|
+| Best    	| 排序过的数组         	    | 2               	| 由于每次的pivot position 都在0，所以（low, high）只需要called两次                            |
+| worst   	| 所有的数组元素一个值 	    | logN              | 每次pivot都在partition的中间值，所以depth为logN1                        	|
+| average 	|                      	|                 	|                                                                   	|
+
+Note: 递归深度取决于每次pivot的位置，如果每次pivot都在比较靠前的位置，depth相应就会少。如果每次pivot都在partition的中间值，那么depth最多
