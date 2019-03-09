@@ -10,8 +10,21 @@ import java.util.Arrays;
 
 public class Quick {
 	
-	private Quick() {
-		
+	public static void main(String[] args) {
+		Integer[] a = { 6, 4, 10, 9, 7, 7, 8, 10, 8, 9, 10 };
+		Quick.sort(a);
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public static void sort(Comparable[] a) {
+		sort(a, 0, a.length - 1);
+	}
+	
+	private static void sort(Comparable[] a, int low, int high) {
+		if (low > high) return;
+		int j = partition(a, low, high);
+		sort(a, low, j - 1);
+		sort(a, j + 1, high);
 	}
 	
 	private static int partition(Comparable[] a, int low, int high) {
@@ -25,17 +38,6 @@ public class Quick {
 		}
 		exch(a, low, j);
 		return j;
-	}
-	
-	public static void sort(Comparable[] a) {
-		sort(a, 0, a.length - 1);
-	}
-	
-	private static void sort(Comparable[] a, int low, int high) {
-		if (low >= high) return;
-		int j = partition(a, low, high);
-		sort(a, low, j - 1);
-		sort(a, j + 1, high);
 	}
 	
 	private static boolean less(Comparable v, Comparable w) {
@@ -54,11 +56,5 @@ public class Quick {
 				return false;
 		}
 		return true;
-	}
-
-	public static void main(String[] args) {
-		Integer[] a = { 6, 4, 10, 9, 7, 7, 8, 10, 8, 9, 10 };
-		Quick.sort(a);
-		System.out.println(Arrays.toString(a));
 	}
 }
