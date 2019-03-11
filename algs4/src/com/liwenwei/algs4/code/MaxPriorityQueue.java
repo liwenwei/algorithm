@@ -19,6 +19,11 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 	}
 	
 	public MaxPriorityQueue(int capacity) {
+		// 长度为什么要使用N+1呢？pq[0]没有使用
+		// 如果heap从位置0开始，则k从0开始，求子节点k*2, k*2 + 1, 则为0，和1,这样跟实际的子节点位置1,2是不符的，
+		// 所以在实际的使用中，为了避免这种错误k就必须从1开始，然后获取根据k去获取数组元素时要相应-1，即pq[k-1]
+		// 例如exchange(i, j), 在实际代买为 <code>object temp = pq[i-1];pq[i-1] = pq[j-1];pq[j-1] = temp</code>
+		// 所以为了避免这样重复的操作，选择将capacity+1， 然后数组索引从1开始
 		pq = (Key[]) new Comparable[capacity + 1];
 	}
 	
@@ -70,9 +75,9 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 	 * @param k
 	 */
 	private void sink(int k) {
-		while (2 * k <= N) {
+		while (2 * k < N) {
 			int j = 2 * k;
-			if (j < N && less(j, j + 1)) j++; // 找出左右子节点的最大值
+			if (less(j, j + 1)) j++; // 找出左右子节点的最大值
 			if (!less(k, j)) break;
 			exch(k, j); // 将子节点的最大值和k交换
 			k = j;
