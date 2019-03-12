@@ -88,6 +88,19 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 		return pq[1];
 	}
 	
+	public Key min() {
+		int k = N / 2;
+		int j = N;
+		int minKey = k;
+		while (k <= j) {
+			if (less(k, minKey)) minKey = k;
+			if (less(j, minKey)) minKey = j;
+			k++;
+			j--;
+		}
+		return pq[minKey];
+	}
+	
 	public Key delMax() {
 		Key max = pq[1];    // 共根节点得到最大元素
 		exch(1,  N--);      // 将其和最后一个节点交换
