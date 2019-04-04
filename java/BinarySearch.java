@@ -1,7 +1,6 @@
-
 /**
  * 
- * 二分查找的数组必须是有序的
+ * 浜屽垎鏌ユ壘
  *
  */
 public class BinarySearch {
