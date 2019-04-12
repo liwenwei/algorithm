@@ -3,6 +3,19 @@ package com.liwenwei.algs4.code;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * 
+ * <code>背包</code>
+ * <p>
+ * 背包是一种不支持从中删除元素的集合数据类型——它的目的就是帮助用例收集元素并迭代遍历所有收集到的元素，
+ * 用例也可以检查背包是否为空，或者获取背包中元素的数量
+ * <p>
+ * 迭代的顺序不确定且与用例无关
+ * 
+ * @author liwenwei
+ *
+ * @param <E>
+ */
 public class Bag<E> implements Iterable<E> {
 
 	private Node<E> head;
@@ -16,6 +29,7 @@ public class Bag<E> implements Iterable<E> {
 	
 	public Bag() {
 		head = null;
+		N = 0;
 	}
 	
 	// add node to head
