@@ -1,6 +1,6 @@
 /**
  * 
- * 二分查找
+ * 二分查找，二分查找的数组必须是有序的
  *
  */
 public class BinarySearch {

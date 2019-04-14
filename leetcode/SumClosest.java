@@ -1,6 +1,6 @@
 /*****************************************************************
- * 已知一个升序的数组array，再给定一个定值sum，现在要找出数组array中哪两个元素
- * 的和最接近于这个定值sum，并输出这两个元素
+ * 已知一个升序的数组array，再给定一个定值sum，现在要找出数组array中哪两个元素 的和最接近于这个
+ * 定值sum，并输出这两个元素
  * 
  * @author liwenwei
  * 
@@ -9,7 +9,7 @@
 public class SumClosest {
 
 	public static void main(String[] args) {
-		int[] a = {1,2,3,4,5,6,7,8,9};
+		int[] a = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 		sumClosest(a, 15);
 	}
 
